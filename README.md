@@ -1,6 +1,8 @@
 # elm-bootstrap-boilerplate
 This is a boilerplate project designed to help get up and running quickly with Elm development with Bootstarp
 
+It uses the `Elm Architecture` via the `Program` module
+
 *Note: Before using this project make sure you have elm installed.*
 
 ## Installation
@@ -22,3 +24,5 @@ This is a boilerplate project designed to help get up and running quickly with E
 
 ## TODO
 - Basic page layout in example
+- Page routing
+- Unit test framework
