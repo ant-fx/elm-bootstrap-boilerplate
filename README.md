@@ -1,7 +1,7 @@
 # elm-bootstrap-boilerplate
 This is a boilerplate project designed to help get up and running quickly with Elm development with Bootstarp
 
-Note* Before using this project make sure you have elm installed.
+*Note: Before using this project make sure you have elm installed.*
 
 ## Installation
 - Download/clone this directory
@@ -18,3 +18,7 @@ Note* Before using this project make sure you have elm installed.
 - File watching
 - Live Reload
 - Bootstrap
+
+
+## TODO
+- Basic page layout in example
