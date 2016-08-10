@@ -6,6 +6,7 @@ const gulp = require('gulp')
 const gutil = require('gulp-util')
 const less = require('gulp-less')
 const livereload = require('gulp-livereload')
+const runSequence = require('run-sequence')
 const sourcemaps = require('gulp-sourcemaps')
 const webserver = require('gulp-webserver')
 
@@ -52,7 +53,7 @@ gulp.task('html', () => {
 })
 
 gulp.task('elm', ['elm-init'], function () {
-  return gulp.src('src/elm/*.elm')
+  return gulp.src(['src/elm/*.elm', 'src/elm/!Test*'])
     .pipe(elm.bundle('app.js'))
     .on('error', () => {}) // errors are already printed by the elm compiler
     .pipe(gulp.dest('dist/js/'))
@@ -70,16 +71,29 @@ gulp.task('webserver', function () {
     )
 })
 
-gulp.task('develop', ['clean', 'html', 'elm', 'js', 'css', 'less', 'webserver'],
-  function () {
-    livereload.listen({
-      basePath: 'dist'
-    })
-    gulp.watch('src/less/*.less', ['less'])
-    gulp.watch('src/js/*.js', ['js'])
-    gulp.watch('src/elm/*.elm', ['elm'])
-    gulp.watch('src/css/*.css', ['css'])
-    gulp.watch('src/*.html', ['html'])
-  })
+gulp.task('develop', function (done) {
+  runSequence(
+    'clean',
+    ['html', 'elm', 'js', 'css', 'less'],
+    'webserver',
+    () => {
+      livereload.listen({
+        basePath: 'dist'
+      })
+      gulp.watch('src/less/*.less', ['less'])
+      gulp.watch('src/js/*.js', ['js'])
+      gulp.watch('src/elm/*.elm', ['elm'])
+      gulp.watch('src/css/*.css', ['css'])
+      gulp.watch('src/*.html', ['html'])
+      done()
+    }
+  )
+})
 
-gulp.task('build', ['clean', 'html', 'elm', 'js', 'css', 'less'])
+gulp.task('build', function (done) {
+  runSequence(
+    'clean',
+    ['html', 'elm', 'js', 'css', 'less'],
+    done
+  )
+})

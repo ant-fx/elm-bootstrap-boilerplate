@@ -17,8 +17,11 @@ It uses the `Elm Architecture` via the `Program` module
 - Edit and enjoy!
 
 ## Build/deploy
-- run `npm build`
+- run `npm run build`
 - The output files will be in the `./dist` folder
+
+## Run tests
+- run `npm test`
 
 ## Features
 - LESS to CSS
@@ -32,4 +35,3 @@ It uses the `Elm Architecture` via the `Program` module
 ## TODO
 - Basic page layout in example
 - Page routing
-- Unit test framework
