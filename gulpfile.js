@@ -81,3 +81,5 @@ gulp.task('develop', ['clean', 'html', 'elm', 'js', 'css', 'less', 'webserver'],
     gulp.watch('src/css/*.css', ['css'])
     gulp.watch('src/*.html', ['html'])
   })
+
+gulp.task('build', ['clean', 'html', 'elm', 'js', 'css', 'less'])
