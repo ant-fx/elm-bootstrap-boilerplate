@@ -12,6 +12,13 @@ It uses the `Elm Architecture` via the `Program` module
 - run `npm develop` to start the development server
 - Edit and enjoy!
 
+## Development
+- run `npm develop` to start the development server
+- Edit and enjoy!
+
+## Build/deploy
+- run `npm build`
+- The output files will be in the `./dist` folder
 
 ## Features
 - LESS to CSS
